@@ -3,7 +3,6 @@ require 'hammer_cli_foreman'
 require 'hammer_cli_foreman/commands'
 
 module HammerCLIKatello
-
   class Provider < HammerCLI::Apipie::Command
     resource KatelloApi::Resources::Provider
 
@@ -19,14 +18,12 @@ module HammerCLIKatello
       apipie_options
     end
 
-
     class InfoCommand < HammerCLIForeman::InfoCommand
       output ListCommand.output_definition do
         field :created_at, "Created at", Fields::Date
         field :updated_at, "Updated at", Fields::Date
       end
     end
-
 
     class CreateCommand < HammerCLIForeman::CreateCommand
       success_message "Provider created"
@@ -35,12 +32,10 @@ module HammerCLIKatello
       apipie_options
     end
 
-
     class DeleteCommand < HammerCLIForeman::DeleteCommand
       success_message "Provider deleted"
       failure_message "Could not delete the provider"
     end
-
 
     class UpdateCommand < HammerCLIForeman::UpdateCommand
       success_message "Provider updated"
@@ -48,7 +43,6 @@ module HammerCLIKatello
 
       apipie_options
     end
-
 
     class UploadManifestCommand < HammerCLIForeman::WriteCommand
       class FileNormalizer
@@ -61,16 +55,15 @@ module HammerCLIKatello
 
       action "import_manifest"
       command_name "import_manifest"
-              
-      option "--file", "MANIFEST", "Path to a file that contains the manifest", :attribute_name => :import, :required => true,
-        :format => FileNormalizer.new
+
+      option "--file", "MANIFEST", "Path to a file that contains the manifest",
+             :attribute_name => :import, :required => true, :format => FileNormalizer.new
 
       success_message "Manifest is being uploaded"
       failure_message "Manifest upload failed"
 
       apipie_options :without => [:import]
     end
-
 
     class RefreshManifestCommand < HammerCLIForeman::WriteCommand
       action "refresh_manifest"
@@ -81,7 +74,6 @@ module HammerCLIKatello
 
       apipie_options
     end
-
 
     class DeleteManifestCommand < HammerCLIForeman::DeleteCommand
       action "delete_manifest"
@@ -95,7 +87,7 @@ module HammerCLIKatello
 
     autoload_subcommands
   end
-
 end
 
-HammerCLI::MainCommand.subcommand 'provider', "Manipulate providers", HammerCLIKatello::Provider
+HammerCLI::MainCommand.subcommand 'provider', "Manipulate providers",
+                                  HammerCLIKatello::Provider

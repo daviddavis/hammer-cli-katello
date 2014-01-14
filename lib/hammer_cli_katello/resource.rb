@@ -1,7 +1,6 @@
 require 'hammer_cli'
 
 module HammerCLIKatello
-
   module Resource
 
     def resource_config
@@ -13,5 +12,4 @@ module HammerCLIKatello
     end
 
   end
-
 end

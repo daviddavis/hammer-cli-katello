@@ -8,7 +8,6 @@ module HammerCLIKatello
 
     resource KatelloApi::Resources::Ping, :index
 
-
     output do
       from "services" do
 
@@ -65,6 +64,7 @@ module HammerCLIKatello
 
   end # class PingCommand
 
-  HammerCLI::MainCommand.subcommand("ping", "get the status of the server", HammerCLIKatello::PingCommand)
+  HammerCLI::MainCommand.subcommand("ping", "get the status of the server",
+                                    HammerCLIKatello::PingCommand)
 
 end # module HammerCLIKatello
