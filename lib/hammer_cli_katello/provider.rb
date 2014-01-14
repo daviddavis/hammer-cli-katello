@@ -57,7 +57,8 @@ module HammerCLIKatello
       command_name "import_manifest"
 
       option "--file", "MANIFEST", "Path to a file that contains the manifest",
-             :attribute_name => :import, :required => true, :format => FileNormalizer.new
+             :attribute_name => :import, :required => true,
+             :format => FileNormalizer.new
 
       success_message "Manifest is being uploaded"
       failure_message "Manifest upload failed"
