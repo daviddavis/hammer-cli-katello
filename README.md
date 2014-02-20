@@ -48,8 +48,6 @@ Before we bundle, we need to setup our local Gemfile. If you're using the gems i
 # vim:ft=ruby
 gem 'hammer_cli', :path => '../hammer-cli'
 gem 'hammer_cli_foreman', :path => '../hammer-cli-foreman'
-gem 'foreman_api', :path => '../foreman_api'
-
 gem 'katello_api', :path => '../katello_api'
 ```
 
